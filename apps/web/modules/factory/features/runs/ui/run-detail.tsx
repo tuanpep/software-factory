@@ -18,6 +18,7 @@ import { PageBreadcrumbs } from "@/modules/ui/components/page-breadcrumbs";
 import { PageHeader } from "@/modules/ui/components/page-header";
 
 import type { FactoryRunDetail as FactoryRunDetailModel } from "../domain/types";
+import { PipelineGraph } from "./pipeline-graph";
 import { RunStatusPill } from "./run-status-pill";
 
 import classes from "./run-detail.module.css";
@@ -137,6 +138,10 @@ export function RunDetail({ run }: { run: FactoryRunDetailModel }) {
           </>
         }
       />
+
+      <Section title={t("pipelineLabel")}>
+        <PipelineGraph status={run.status} variant="full" />
+      </Section>
 
       <div className={classes.verdict}>
         <Fact label={t("nextAction")}>

@@ -1,0 +1,129 @@
+.node {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  color: var(--mantine-color-white);
+  background: transparent;
+}
+
+.node[data-state="success"] {
+  background: var(--mantine-color-green-filled);
+}
+
+.node[data-state="failed"] {
+  background: var(--mantine-color-red-filled);
+}
+
+.node[data-state="warning"] {
+  background: var(--mantine-color-orange-filled);
+}
+
+.node[data-state="canceled"] {
+  background: var(--mantine-color-gray-filled);
+}
+
+.node[data-state="pending"],
+.node[data-state="skipped"] {
+  border-color: var(--mantine-color-default-border);
+  color: var(--mantine-color-dimmed);
+}
+
+.node[data-state="skipped"] {
+  border-style: dashed;
+}
+
+.node[data-state="manual"] {
+  border-color: var(--mantine-color-blue-filled);
+  color: var(--mantine-color-blue-filled);
+}
+
+.node[data-state="running"] {
+  color: var(--mantine-color-blue-filled);
+}
+
+.node[data-state="running"]::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border: 2px solid var(--mantine-color-blue-light);
+  border-top-color: var(--mantine-color-blue-filled);
+  border-radius: 999px;
+  animation: pipeline-spin 0.9s linear infinite;
+}
+
+.graph {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.connector {
+  flex: 1 1 0.75rem;
+  height: 2px;
+  min-width: 0.75rem;
+  background: var(--mantine-color-default-border);
+}
+
+.connector[data-complete="true"] {
+  background: var(--mantine-color-green-filled);
+}
+
+.graph[data-variant="mini"] .connector {
+  flex: 0 0 0.75rem;
+}
+
+.graph[data-variant="mini"] .track {
+  width: auto;
+}
+
+.graph[data-variant="full"] .node {
+  width: 2rem;
+  height: 2rem;
+}
+
+.graph[data-variant="full"] .stage {
+  flex: 1 1 4.5rem;
+  max-width: 8rem;
+}
+
+.stage-name {
+  margin-top: 0.35rem;
+  color: var(--mantine-color-dimmed);
+  font-size: var(--mantine-font-size-xs);
+  line-height: 1.3;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .node[data-state="running"]::before {
+    border-color: var(--mantine-color-blue-filled);
+    animation: none;
+  }
+}
+
+@keyframes pipeline-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}

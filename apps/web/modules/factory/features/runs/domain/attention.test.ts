@@ -33,12 +33,20 @@ const runs: FactoryRunSummary[] = [
   },
 ];
 
-test("counts ready, input, and failed runs", () => {
+test("counts running, ready, input, and failed runs", () => {
   expect(countAttention(runs)).toEqual({
+    running: 0,
     ready: 1,
     needs_input: 1,
     failed: 1,
   });
+});
+
+test("matches in-progress runs on the running facet", () => {
+  expect(
+    matchesAttentionFilter({ ...runs[0]!, status: "verifying" }, "running"),
+  ).toBe(true);
+  expect(matchesAttentionFilter(runs[0]!, "running")).toBe(false);
 });
 
 test("matches the failed facet including stale base", () => {

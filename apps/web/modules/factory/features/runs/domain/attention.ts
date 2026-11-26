@@ -2,12 +2,19 @@ import type { FactoryRunStatus, FactoryRunSummary } from "./types";
 
 export const ATTENTION_FILTERS = [
   "all",
+  "running",
   "ready",
   "needs_input",
   "failed",
 ] as const;
 
 export type AttentionFilter = (typeof ATTENTION_FILTERS)[number];
+
+const RUNNING: ReadonlySet<FactoryRunStatus> = new Set([
+  "queued",
+  "producing",
+  "verifying",
+]);
 
 const FAILED: ReadonlySet<FactoryRunStatus> = new Set([
   "verification_failed",
@@ -21,6 +28,7 @@ const FAILED: ReadonlySet<FactoryRunStatus> = new Set([
 
 export function countAttention(runs: FactoryRunSummary[]) {
   return {
+    running: runs.filter((run) => RUNNING.has(run.status)).length,
     ready: runs.filter((run) => run.status === "ready").length,
     needs_input: runs.filter((run) => run.status === "needs_input").length,
     failed: runs.filter((run) => FAILED.has(run.status)).length,
@@ -32,6 +40,7 @@ export function matchesAttentionFilter(
   filter: AttentionFilter,
 ): boolean {
   if (filter === "all") return true;
+  if (filter === "running") return RUNNING.has(run.status);
   if (filter === "ready") return run.status === "ready";
   if (filter === "needs_input") return run.status === "needs_input";
   return FAILED.has(run.status);
