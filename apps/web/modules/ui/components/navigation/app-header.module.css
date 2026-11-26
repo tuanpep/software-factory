@@ -1,0 +1,22 @@
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  inset-block-start: var(--mantine-spacing-xs);
+  inset-inline-start: var(--mantine-spacing-md);
+  padding: 4px var(--mantine-spacing-xs);
+  transform: translateY(-200%);
+  border-radius: var(--mantine-radius-md);
+  background: var(--mantine-color-body);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.language-error {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-end: 0;
+  padding: var(--mantine-spacing-xs);
+  background: var(--mantine-color-body);
+}

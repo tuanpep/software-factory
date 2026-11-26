@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "cases": [
+    { "name": "correct", "expected": "ready", "reason": "approved_link_repaired" },
+    { "name": "wrong-destination", "expected": "verification_failed", "reason": "destination_not_approved" },
+    { "name": "unrelated-edit", "expected": "verification_failed", "reason": "invalid_candidate_schema" }
+  ]
+}

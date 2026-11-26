@@ -1,0 +1,14 @@
+{
+  "App": {
+    "language": "Language",
+    "languageError": "Could not change language. Please try again.",
+    "lightTheme": "Switch to light theme",
+    "darkTheme": "Switch to dark theme",
+    "skipToContent": "Skip to content"
+  },
+  "Factory": {
+    "runs": "Factory runs",
+    "empty": "No runs to display",
+    "notConnected": "This app isn't connected to GitHub Actions yet."
+  }
+}

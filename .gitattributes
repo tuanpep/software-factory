@@ -1,0 +1,2 @@
+apps/factory/tests/fixtures/** text eol=lf
+apps/web/** text=auto eol=lf

@@ -1,0 +1,14 @@
+{
+  "App": {
+    "language": "Ngôn ngữ",
+    "languageError": "Không thể đổi ngôn ngữ. Vui lòng thử lại.",
+    "lightTheme": "Chuyển sang giao diện sáng",
+    "darkTheme": "Chuyển sang giao diện tối",
+    "skipToContent": "Chuyển đến nội dung chính"
+  },
+  "Factory": {
+    "runs": "Lượt chạy Factory",
+    "empty": "Không có lượt chạy để hiển thị",
+    "notConnected": "Ứng dụng chưa kết nối với GitHub Actions."
+  }
+}

@@ -1,0 +1,74 @@
+.accordion-control {
+  color: var(--mantine-color-text);
+}
+
+.accordion-content {
+  background-color: var(--arco-fill-1);
+}
+
+.avatar-placeholder {
+  font-weight: 500;
+}
+
+.breadcrumb-separator {
+  color: var(--mantine-color-disabled-color);
+}
+
+.divider-label {
+  color: var(--mantine-color-text);
+  font-size: var(--mantine-font-size-md);
+  font-weight: 500;
+}
+
+.slider-thumb {
+  border-width: 2px;
+  border-color: var(--slider-color);
+  background-color: var(--arco-surface);
+}
+
+.step-icon {
+  font-weight: 500;
+}
+
+.data-label,
+.indicator-label,
+.notification-title {
+  font-weight: 500;
+}
+
+.data-label {
+  color: var(--arco-text-secondary);
+}
+
+.empty {
+  padding: var(--mantine-spacing-xs);
+}
+
+.notification {
+  background-color: var(--arco-popup);
+  border: 1px solid var(--arco-border);
+  box-shadow: var(--mantine-shadow-md);
+}
+
+.progress-track {
+  background-color: var(--arco-fill-3);
+}
+
+.rating:not([data-filled]) {
+  fill: var(--arco-fill-3);
+  stroke: var(--arco-fill-3);
+}
+
+.skeleton[data-visible]::after {
+  background-color: var(--arco-fill-2);
+}
+
+.tree-label {
+  min-height: calc(2rem * var(--mantine-scale));
+  border-radius: var(--mantine-radius-xs);
+}
+
+.tree-label[data-selected] {
+  background-color: var(--mantine-primary-color-light);
+  color: var(--mantine-primary-color-light-color);
+}

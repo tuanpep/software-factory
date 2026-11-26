@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "runId": 1042,
+  "attempt": 1,
+  "issueNumber": 42,
+  "baseRevision": "synthetic-v1",
+  "markdownPath": "docs/setup.md",
+  "brokenLink": "./old-install.md",
+  "destination": "./install.md"
+}
