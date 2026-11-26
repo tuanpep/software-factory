@@ -1,6 +1,6 @@
 # Software factory harness: tools, contracts, and stack
 
-**Status:** the local deterministic slice, synthetic GitHub workflow, and fixture-backed [web prototype](software-factory-web-client.md) are in the repository. Live web and agent integrations are proposed. See the [README](../../README.md) for run instructions, the [pilot proposal](software-factory-harness-proposal.md) for acceptance gates, and the [factory ADR](../adr/001-software-factory-design.md) for the broader decision.
+**Status:** the local deterministic slice, synthetic GitHub workflow, and [web client foundation](software-factory-web-client.md) are in the repository. Live web and agent integrations are proposed. See the [README](../../README.md) for run instructions, the [pilot proposal](software-factory-harness-proposal.md) for acceptance gates, and the [factory ADR](../adr/001-software-factory-design.md) for the broader decision.
 
 ## Decision
 

@@ -7,7 +7,7 @@ Local deterministic harness for an approved Markdown link repair. See the [bluep
 ```text
 apps/
   factory/       Rust verifier, CLI, and replay fixtures
-  web/           Next.js review prototype and Component Book
+  web/           Next.js client foundation
 docs/            Architecture decisions and design
 .github/         CI checks and manual synthetic handoff
 ```
@@ -19,9 +19,9 @@ Each app owns its lockfile and builds without the other's toolchain. See the [mo
 | Rust | `apps/factory/` | `cargo fmt --check`, `cargo clippy --locked --all-targets -- -D warnings`, `cargo test --locked` |
 | Web | `apps/web/` | `npm ci`, `npm run check`, `npm run build` |
 
-## Run the web prototype
+## Run the web client
 
-The [maintainer web client](docs/design/software-factory-web-client.md) is a fixture-backed prototype based on [nextjs-mantine-arco](https://github.com/tuanpep/nextjs-mantine-arco). Use Node.js 24 LTS to match CI, and npm:
+The [maintainer web client](docs/design/software-factory-web-client.md) uses the [nextjs-mantine-arco](https://github.com/tuanpep/nextjs-mantine-arco) foundation. Use Node.js 24 LTS to match CI, and npm:
 
 ```text
 cd apps/web
@@ -29,7 +29,7 @@ npm ci
 npm run dev
 ```
 
-Open [localhost:4202](http://localhost:4202) for the run list and `/components` for the template's Component Book. The UI previews example evidence only: it doesn't connect to GitHub, send requests, or apply patches.
+Open [localhost:4202](http://localhost:4202) for the Factory Runs page. GitHub integration has not been implemented.
 
 ## Run the synthetic fixture suite
 

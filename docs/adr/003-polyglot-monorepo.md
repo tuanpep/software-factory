@@ -9,7 +9,7 @@ Group both runnable applications under `apps/`. Keep documentation and workflows
 | Home | Owns | Lockfile |
 | --- | --- | --- |
 | `apps/factory/` | Rust library, CLI, verification rules, replay fixtures | `apps/factory/Cargo.lock` |
-| `apps/web/` | Next.js client and its fixture view data | `apps/web/package-lock.json` |
+| `apps/web/` | Next.js client and its presentation code | `apps/web/package-lock.json` |
 | `.github/workflows/` | Independent CI jobs and the existing manual synthetic handoff | None |
 
 Use the native package commands. There is no root `package.json`, no `[workspace]` in the Cargo manifest, and no cross-language task runner. Neither application imports the other's source or output directory. When live evidence integration is approved, make the versioned receipt and patch the boundary; validate them at intake rather than copying verifier logic into TypeScript.

@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     <Container size="md" py="lg">
       <AppSkipLink />
       <Stack gap="lg">
-        <Group component="header" justify="space-between">
+        <Group component="header" justify="space-between" pos="relative">
           <Text fw={700}>Software Factory</Text>
           <AppHeaderToolbar />
         </Group>

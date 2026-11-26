@@ -7,7 +7,7 @@ npm ci
 npm run dev
 ```
 
-Open [localhost:4202](http://localhost:4202). The Factory Runs screen is not connected to GitHub yet.
+Open [localhost:4202](http://localhost:4202). To show **Start in GitHub**, set `FACTORY_GITHUB_REPOSITORY=OWNER/REPO` in `.env.local` and restart the app. Use a synthetic repository that has `.github/workflows/synthetic-handoff.yml` on its default branch. The link opens the workflow page. Start the run and review its evidence in GitHub Actions.
 
 - `app/` owns Next.js routes and providers.
 - `modules/factory/` owns Factory screens. Keep live data access on the server when it is added.

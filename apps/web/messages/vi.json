@@ -8,7 +8,9 @@
   },
   "Factory": {
     "runs": "Lượt chạy Factory",
+    "startInGitHub": "Bắt đầu trên GitHub",
     "empty": "Không có lượt chạy để hiển thị",
+    "historyInGitHub": "Xem lịch sử lượt chạy trong GitHub Actions.",
     "notConnected": "Ứng dụng chưa kết nối với GitHub Actions."
   }
 }

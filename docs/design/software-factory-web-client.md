@@ -1,6 +1,6 @@
 # Software factory web client
 
-**Status:** fixture-backed prototype implemented in [`apps/web/`](../../apps/web/); live integration is proposed. GitHub Actions still runs the job, the Rust verifier still decides the verdict, and maintainers still publish changes through GitHub. See the [harness design](software-factory-harness.md) and the [synthetic handoff decision](../adr/001-software-factory-design.md#practice-for-the-synthetic-handoff).
+**Status:** [`apps/web/`](../../apps/web/) provides the Factory Runs screen and can link to the synthetic workflow for one configured repository. It does not read run history or serve the former fixture prototype. GitHub Actions still runs the job, the Rust verifier still decides the verdict, and maintainers still publish changes through GitHub. See the [harness design](software-factory-harness.md) and the [synthetic handoff decision](../adr/001-software-factory-design.md#practice-for-the-synthetic-handoff).
 
 ## Who it helps
 
@@ -55,7 +55,7 @@ Use text labels, not just green or red. Keep the diff readable with a keyboard a
 
 ## Practice and ownership
 
-The prototype uses fixture-backed view data and the supplied Next.js App Router template, recorded in the [web client template decision](../adr/002-web-client-template.md). If maintainers prefer it to the GitHub summary, add read-only run metadata through a server-only adapter. [Next.js documents this pattern](https://nextjs.org/docs/app/guides/backend-for-frontend). No deployment has been chosen.
+The client keeps the supplied Next.js App Router template's theme and locale setup, recorded in the [web client template decision](../adr/002-web-client-template.md). If maintainers prefer the proposed view to the GitHub summary, add read-only run metadata through a server-only adapter. [Next.js documents this pattern](https://nextjs.org/docs/app/guides/backend-for-frontend). No deployment has been chosen.
 
 ```text
 Browser → authenticated web server → GitHub run / attempt / evidence APIs

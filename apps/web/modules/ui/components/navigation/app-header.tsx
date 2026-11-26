@@ -21,11 +21,7 @@ export function AppSkipLink() {
   const t = useTranslations("App");
 
   return (
-    <Anchor
-      href="#main-content"
-      size="sm"
-      className={classes["skip-link"]}
-    >
+    <Anchor href="#main-content" size="sm" className={classes["skip-link"]}>
       {t("skipToContent")}
     </Anchor>
   );

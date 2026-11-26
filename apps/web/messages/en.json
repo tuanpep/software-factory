@@ -8,7 +8,9 @@
   },
   "Factory": {
     "runs": "Factory runs",
+    "startInGitHub": "Start in GitHub",
     "empty": "No runs to display",
+    "historyInGitHub": "Run history is available in GitHub Actions.",
     "notConnected": "This app isn't connected to GitHub Actions yet."
   }
 }
