@@ -1,3 +1,4 @@
+// @vitest-environment node
 import { afterEach, expect, test, vi } from "vitest";
 
 afterEach(() => {

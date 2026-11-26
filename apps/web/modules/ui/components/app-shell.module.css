@@ -1,0 +1,22 @@
+.header-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding-inline: var(--mantine-spacing-md);
+  gap: var(--mantine-spacing-sm);
+}
+
+.brand {
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Mantine stretches the sidebar to 100% below its breakpoint. Keep a 240px overlay. */
+@media (width <= 75em) {
+  .root {
+    --app-shell-navbar-width: calc(15rem * var(--mantine-scale));
+  }
+}

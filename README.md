@@ -21,7 +21,7 @@ Each app owns its lockfile and builds without the other's toolchain. See the [mo
 
 ## Run the web client
 
-The [maintainer web client](docs/design/software-factory-web-client.md) uses the [nextjs-mantine-arco](https://github.com/tuanpep/nextjs-mantine-arco) foundation. Use Node.js 24 LTS to match CI, and npm:
+The [maintainer web client](docs/design/software-factory-web-client.md) uses the [nextjs-fe-template](https://github.com/tuanpep/nextjs-fe-template) foundation. Use Node.js 24 LTS to match CI, and npm:
 
 ```text
 cd apps/web
@@ -29,7 +29,7 @@ npm ci
 npm run dev
 ```
 
-Open [localhost:4202](http://localhost:4202) for the Factory Runs page. GitHub integration has not been implemented.
+Open [localhost:4202](http://localhost:4202) for the Review console (runs queue + evidence). GitHub integration has not been implemented.
 
 ## Run the synthetic fixture suite
 

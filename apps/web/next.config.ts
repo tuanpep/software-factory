@@ -15,9 +15,26 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: [
       "@mantine/core",
+      "@mantine/form",
       "@mantine/hooks",
       "@tabler/icons-react",
+      "@tanstack/react-query",
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/providers",
+        destination: "/configure/providers",
+        permanent: false,
+      },
+      { source: "/models", destination: "/configure/models", permanent: false },
+      {
+        source: "/profiles",
+        destination: "/configure/profiles",
+        permanent: false,
+      },
+    ];
   },
 };
 

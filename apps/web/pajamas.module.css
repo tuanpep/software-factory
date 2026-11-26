@@ -1,0 +1,414 @@
+.active:active:not(:disabled, [data-disabled], [data-loading]) {
+  background-color: var(--button-active, var(--button-hover));
+  color: var(
+    --button-active-color,
+    var(--button-hover-color, var(--button-color))
+  );
+}
+
+:global(body) {
+  background-color: var(--gl-bg-canvas);
+}
+
+:global(.mantine-focus-auto:focus-visible),
+:global(.mantine-focus-always:focus) {
+  outline: none;
+  box-shadow:
+    0 0 0 1px var(--gl-focus-inner),
+    0 0 0 3px var(--gl-focus-outer);
+}
+
+.tab-list {
+  --tabs-list-border-width: 0;
+
+  border-bottom: 1px solid var(--mantine-color-default-border);
+}
+
+.tab-list::before {
+  content: none;
+}
+
+.tab {
+  padding: 1rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--gl-tab-fg);
+  font-size: var(--mantine-font-size-md);
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.tab::before {
+  content: "";
+  position: absolute;
+  inset-inline: -1px;
+  bottom: -1px;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-list .tab:hover:not([data-active], :disabled, [data-disabled]) {
+  border-color: transparent;
+  background-color: var(--gl-action-hover);
+}
+
+.tab-list .tab:hover:not([data-active], :disabled, [data-disabled])::before {
+  border-bottom-color: var(--gl-tab-hover-indicator);
+}
+
+.tab-list .tab[data-active] {
+  border-color: transparent;
+  background-color: transparent;
+  color: var(--gl-tab-fg);
+  font-weight: 600;
+}
+
+.tab-list .tab[data-active]::before {
+  border-bottom-color: var(--gl-tab-indicator);
+}
+
+:global([data-mantine-color-scheme]) .input:focus,
+:global([data-mantine-color-scheme]) .input:focus-within {
+  --input-bd: var(--gl-control-border-focus);
+
+  outline: none;
+  box-shadow:
+    0 0 0 1px var(--gl-focus-inner),
+    0 0 0 3px var(--gl-focus-outer);
+}
+
+:global([data-mantine-color-scheme]) .segmented {
+  padding: 0;
+  overflow: visible;
+  background-color: transparent;
+  border-radius: var(--mantine-radius-lg);
+}
+
+.segmented-indicator {
+  display: none;
+}
+
+.segmented-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--gl-button-border);
+  border-radius: 0;
+  background-color: var(--gl-button-bg);
+  color: var(--gl-button-fg);
+  font-size: var(--mantine-font-size-md);
+  font-weight: 400;
+  line-height: 1rem;
+}
+
+.segmented-control:first-of-type .segmented-label {
+  border-start-start-radius: var(--mantine-radius-lg);
+  border-end-start-radius: var(--mantine-radius-lg);
+}
+
+.segmented-control:last-of-type .segmented-label {
+  border-start-end-radius: var(--mantine-radius-lg);
+  border-end-end-radius: var(--mantine-radius-lg);
+}
+
+.segmented-control:not(:first-of-type) .segmented-label {
+  margin-inline-start: -1px;
+}
+
+.segmented[data-with-items-borders] .segmented-control::before {
+  content: none;
+}
+
+.segmented .segmented-label:hover:not([data-active], [data-disabled]) {
+  background-color: var(--gl-button-hover);
+}
+
+.segmented .segmented-label[data-active] {
+  z-index: 1;
+  border-color: var(--gl-segment-selected-bd);
+  background-color: var(--gl-segment-selected-bg);
+  color: var(--gl-segment-selected-fg);
+}
+
+.segmented-input:focus-visible + .segmented-label {
+  --segmented-control-outline: none;
+
+  outline: none;
+  box-shadow:
+    0 0 0 1px var(--gl-focus-inner),
+    0 0 0 3px var(--gl-focus-outer);
+}
+
+:global([data-mantine-color-scheme]) .switch-track {
+  --switch-bg: var(--gl-toggle-bg);
+  --switch-color: var(--gl-toggle-checked-bg);
+  --switch-thumb-bg: var(--gl-toggle-thumb);
+}
+
+.alert {
+  padding: 1rem;
+}
+
+.alert::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--gl-alert-accent) 50%,
+    transparent 100%
+  );
+}
+
+:global([data-mantine-color-scheme]) .pagination-control {
+  border-color: transparent;
+  background-color: transparent;
+  color: var(--gl-button-fg);
+  font-size: var(--mantine-font-size-md);
+  font-weight: 400;
+}
+
+:global([data-mantine-color-scheme]) .pagination-control[data-active] {
+  border-color: var(--gl-pagination-active-bg);
+  background-color: var(--gl-pagination-active-bg);
+  color: var(--gl-pagination-active-fg);
+}
+
+.breadcrumbs a {
+  color: var(--mantine-color-dimmed);
+  text-decoration-color: transparent;
+}
+
+.breadcrumbs a:hover {
+  text-decoration-line: underline;
+  text-decoration-color: currentcolor;
+}
+
+.breadcrumbs > :last-child {
+  color: var(--mantine-color-text);
+  font-weight: 600;
+}
+
+.breadcrumb-separator {
+  color: var(--gl-breadcrumb-separator);
+}
+
+:global([data-mantine-color-scheme]) .skeleton[data-visible]::after {
+  background-color: var(--gl-skeleton-bg);
+}
+
+/* Collapsed chevron points right; expanded ([data-rotate]) points down. */
+:global([data-mantine-color-scheme]) .accordion-chevron {
+  margin-inline: 0 0.25rem;
+  transform: rotate(-90deg);
+}
+
+:global([data-mantine-color-scheme]) .accordion-chevron[data-rotate] {
+  transform: rotate(0deg);
+}
+
+:global([data-mantine-color-scheme]) .accordion-item {
+  margin-bottom: 1rem;
+  border: 0;
+  background-color: transparent;
+}
+
+:global([data-mantine-color-scheme]) .accordion-item:last-child {
+  margin-bottom: 0;
+}
+
+:global([data-mantine-color-scheme]) .accordion-title {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+}
+
+:global([data-mantine-color-scheme]) .accordion-control {
+  width: fit-content;
+  max-width: 100%;
+  padding: 0;
+  background-color: transparent;
+  color: var(--mantine-color-anchor);
+}
+
+:global([data-mantine-color-scheme]) .accordion-control:hover,
+:global([data-mantine-color-scheme]) .accordion-control:active {
+  background-color: transparent;
+}
+
+:global([data-mantine-color-scheme]) .accordion-label {
+  padding: 0;
+  overflow: visible;
+  color: inherit;
+  font-size: var(--mantine-font-size-md);
+  font-weight: 400;
+  line-height: 1.25;
+  text-overflow: unset;
+  white-space: normal;
+}
+
+:global([data-mantine-color-scheme]) .accordion-control:hover .accordion-label {
+  text-decoration-line: underline;
+}
+
+:global([data-mantine-color-scheme]) .accordion-content {
+  padding-block: 0.5rem 0;
+  padding-inline: 1.25rem 0;
+  color: var(--mantine-color-text);
+  font-size: var(--mantine-font-size-md);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Mantine static class names are PascalCase. */
+/* stylelint-disable selector-class-pattern */
+:global(.mantine-InputWrapper-label) {
+  margin-bottom: 0.25rem;
+  color: var(--gl-text-heading);
+  font-size: var(--mantine-font-size-md);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+:global(.mantine-InputWrapper-description),
+:global(.mantine-InputWrapper-error) {
+  margin-top: 0.25rem;
+  font-size: var(--mantine-font-size-xs);
+}
+/* stylelint-enable selector-class-pattern */
+
+:global([data-mantine-color-scheme])
+  .choice-input:not(:checked, [data-indeterminate]) {
+  border-color: var(--gl-control-border);
+  background-color: var(--mantine-color-body);
+}
+
+:global([data-mantine-color-scheme]) .combobox-option {
+  border-radius: var(--mantine-radius-md);
+  font-size: var(--mantine-font-size-md);
+  font-weight: 400;
+}
+
+:global([data-mantine-color-scheme])
+  .combobox-option:hover:not(
+    [data-combobox-selected],
+    [data-combobox-disabled]
+  ) {
+  background-color: var(--gl-action-hover);
+}
+
+:global([data-mantine-color-scheme]) .combobox-option[data-combobox-selected] {
+  background-color: var(--gl-nav-active);
+  color: var(--gl-text-heading);
+}
+
+:global([data-mantine-color-scheme]) .nav-link {
+  position: relative;
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+  box-sizing: border-box;
+  gap: 0.5rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--mantine-radius-lg);
+  font-weight: 425;
+}
+
+:global([data-mantine-color-scheme])
+  .nav-link:not([data-active], [aria-current="page"]) {
+  background-color: transparent;
+  color: var(--gl-nav-fg);
+}
+
+:global([data-mantine-color-scheme])
+  .nav-link:has(.nav-section[data-position="left"]) {
+  padding-inline-start: 0.25rem;
+}
+
+:global([data-mantine-color-scheme])
+  .nav-link:has(.nav-section[data-position="right"]) {
+  padding-inline-end: 0.25rem;
+}
+
+:global([data-mantine-color-scheme])
+  .nav-link:hover:not(:disabled, [data-disabled]),
+:global([data-mantine-color-scheme]) .nav-link:focus-visible {
+  background-color: var(--gl-nav-bg-hover);
+  color: var(--gl-nav-fg-strong);
+}
+
+:global([data-mantine-color-scheme]) .nav-link:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--gl-focus-outer);
+}
+
+:global([data-mantine-color-scheme])
+  .nav-link:active:not(:disabled, [data-disabled]) {
+  background-color: var(--gl-nav-bg-active);
+  color: var(--gl-nav-fg-strong);
+}
+
+:global([data-mantine-color-scheme])
+  .nav-link:where([data-active], [aria-current="page"]) {
+  background-color: var(--gl-nav-bg-hover);
+  color: var(--gl-nav-fg-strong);
+  font-weight: 600;
+}
+
+:global([data-mantine-color-scheme])
+  .nav-link:where([data-active], [aria-current="page"])::before {
+  content: "";
+  position: absolute;
+  inset-block: 0.25rem;
+  inset-inline-start: -0.5rem;
+  width: 2px;
+  border-start-end-radius: var(--mantine-radius-sm);
+  border-end-end-radius: var(--mantine-radius-sm);
+  background-color: var(--gl-nav-indicator);
+}
+
+:global([data-mantine-color-scheme]) .nav-section {
+  flex: 0 0 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+}
+
+:global([data-mantine-color-scheme]) .nav-section[data-position="right"] {
+  transform: rotate(-90deg);
+  color: var(--mantine-color-dimmed);
+}
+
+:global([data-mantine-color-scheme])
+  .nav-section[data-position="right"][data-rotate] {
+  transform: rotate(0deg);
+}
+
+:global([data-mantine-color-scheme]) .nav-label {
+  color: inherit;
+}
+
+:global([data-mantine-color-scheme]) .nav-children {
+  --nl-offset: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0;
+}
+
+:global([data-mantine-color-scheme]) .nav-children .nav-link {
+  padding-inline-start: 2.5rem;
+}
+
+:global([data-mantine-color-scheme])
+  .close-button:hover:not(:disabled, [data-disabled]) {
+  background-color: var(--gl-action-hover);
+}
