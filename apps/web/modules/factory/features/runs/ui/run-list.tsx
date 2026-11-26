@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Button,
-  Group,
-  Stack,
-  Table,
-  Text,
-  VisuallyHidden,
-} from "@mantine/core";
+import { Button, Stack, Text, VisuallyHidden } from "@mantine/core";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { useQueryState } from "nuqs";
@@ -24,6 +17,8 @@ import {
 import { listRunSummaries } from "../domain/runs";
 import { attentionFilterParser } from "../domain/search-params";
 import { PipelineGraph, PipelineStatusIcon } from "./pipeline-graph";
+
+import classes from "./run-list.module.css";
 
 function formatStartedAt(iso: string, locale: string) {
   return new Intl.DateTimeFormat(locale, {
@@ -99,58 +94,52 @@ export function RunList({ workflowHref }: { workflowHref?: string }) {
           )}
         </Stack>
       ) : (
-        <Table.ScrollContainer minWidth={720}>
-          <Table highlightOnHover verticalSpacing="sm">
-            <Table.Thead>
-              <Table.Tr>
-                <Table.Th>{t("colStatus")}</Table.Th>
-                <Table.Th>{t("colPipeline")}</Table.Th>
-                <Table.Th>{t("colStages")}</Table.Th>
-              </Table.Tr>
-            </Table.Thead>
-            <Table.Tbody>
-              {visible.map((run) => (
-                <Table.Tr key={run.id}>
-                  <Table.Td>
-                    <PipelineStatusIcon status={run.status} />
-                    <VisuallyHidden>{t(`status.${run.status}`)}</VisuallyHidden>
-                  </Table.Td>
-                  <Table.Td>
-                    <Stack gap={2}>
-                      <Text
-                        component={Link}
-                        href={`/runs/${run.id}`}
-                        size="sm"
-                        fw={600}
-                        c="var(--mantine-color-anchor)"
-                        style={{ textDecoration: "none" }}
-                      >
-                        {run.title}
-                      </Text>
-                      <Text size="xs" c="dimmed" ff="monospace">
-                        {t("runIdAttempt", {
-                          id: run.id,
-                          attempt: run.attempt,
-                        })}
-                        {" · "}
-                        {run.jobId}
-                      </Text>
-                      <Group gap={6} wrap="wrap">
-                        <Text size="xs">{t(`status.${run.status}`)}</Text>
-                        <Text size="xs" c="dimmed" suppressHydrationWarning>
-                          {formatStartedAt(run.startedAt, locale)}
-                        </Text>
-                      </Group>
-                    </Stack>
-                  </Table.Td>
-                  <Table.Td style={{ whiteSpace: "nowrap" }}>
-                    <PipelineGraph status={run.status} />
-                  </Table.Td>
-                </Table.Tr>
-              ))}
-            </Table.Tbody>
-          </Table>
-        </Table.ScrollContainer>
+        <div className={classes.list}>
+          <div className={classes.head}>
+            <span>{t("colStatus")}</span>
+            <span>{t("colPipeline")}</span>
+            <span>{t("colStages")}</span>
+          </div>
+          <ul className={classes.rows}>
+            {visible.map((run) => (
+              <li key={run.id} className={classes.row}>
+                <div className={classes.status}>
+                  <PipelineStatusIcon status={run.status} />
+                  <VisuallyHidden>{t(`status.${run.status}`)}</VisuallyHidden>
+                </div>
+                <Stack gap={2}>
+                  <Text
+                    component={Link}
+                    href={`/runs/${run.id}`}
+                    size="sm"
+                    fw={600}
+                    c="var(--mantine-color-anchor)"
+                    style={{ textDecoration: "none" }}
+                  >
+                    {run.title}
+                  </Text>
+                  <Text size="xs" c="dimmed" ff="monospace">
+                    {t("runIdAttempt", {
+                      id: run.id,
+                      attempt: run.attempt,
+                    })}
+                    {" · "}
+                    {run.jobId}
+                  </Text>
+                  <Text size="xs">
+                    {t(`status.${run.status}`)}
+                    <Text span c="dimmed" suppressHydrationWarning>
+                      {` · ${formatStartedAt(run.startedAt, locale)}`}
+                    </Text>
+                  </Text>
+                </Stack>
+                <div className={classes.stages}>
+                  <PipelineGraph status={run.status} />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </ModuleTabs>
   );

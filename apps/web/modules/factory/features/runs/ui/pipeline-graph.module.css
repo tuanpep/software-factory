@@ -1,15 +1,18 @@
 .node {
+  --pipeline-node: 1rem;
+
   position: relative;
+  z-index: 1;
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 1rem;
-  height: 1rem;
+  width: var(--pipeline-node);
+  height: var(--pipeline-node);
   border: 2px solid transparent;
   border-radius: 999px;
   color: var(--mantine-color-white);
-  background: transparent;
+  background: var(--gl-main-bg);
 }
 
 .node[data-state="success"] {
@@ -44,22 +47,18 @@
 }
 
 .node[data-state="running"] {
-  color: var(--mantine-color-blue-filled);
-}
-
-.node[data-state="running"]::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border: 2px solid var(--mantine-color-blue-light);
+  border-color: var(--mantine-color-blue-3);
   border-top-color: var(--mantine-color-blue-filled);
-  border-radius: 999px;
+  color: var(--mantine-color-blue-filled);
   animation: pipeline-spin 0.9s linear infinite;
 }
 
 .graph {
+  --pipeline-node: 1rem;
+
   display: flex;
   align-items: flex-start;
+  width: auto;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -75,13 +74,11 @@
 .track {
   display: flex;
   align-items: center;
-  width: 100%;
 }
 
 .connector {
-  flex: 1 1 0.75rem;
+  flex: 0 0 0.75rem;
   height: 2px;
-  min-width: 0.75rem;
   background: var(--mantine-color-default-border);
 }
 
@@ -89,22 +86,34 @@
   background: var(--mantine-color-green-filled);
 }
 
-.graph[data-variant="mini"] .connector {
-  flex: 0 0 0.75rem;
-}
+.graph[data-variant="full"] {
+  --pipeline-node: 2rem;
 
-.graph[data-variant="mini"] .track {
-  width: auto;
-}
-
-.graph[data-variant="full"] .node {
-  width: 2rem;
-  height: 2rem;
+  width: 100%;
 }
 
 .graph[data-variant="full"] .stage {
-  flex: 1 1 4.5rem;
-  max-width: 8rem;
+  flex: 1 1 0;
+}
+
+.graph[data-variant="full"] .track {
+  position: relative;
+  justify-content: center;
+  width: 100%;
+}
+
+.graph[data-variant="full"] .node {
+  --pipeline-node: 2rem;
+}
+
+.graph[data-variant="full"] .connector {
+  position: absolute;
+  top: 50%;
+  right: calc(50% + (var(--pipeline-node) / 2));
+  left: calc(-50% + (var(--pipeline-node) / 2));
+  flex: none;
+  width: auto;
+  transform: translateY(-50%);
 }
 
 .stage-name {
@@ -116,7 +125,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .node[data-state="running"]::before {
+  .node[data-state="running"] {
     border-color: var(--mantine-color-blue-filled);
     animation: none;
   }
